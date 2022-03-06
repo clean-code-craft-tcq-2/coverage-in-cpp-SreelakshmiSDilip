@@ -20,13 +20,36 @@ typedef enum {
   TO_EMAIL
 } AlertTarget;
 
-typedef struct {
-  CoolingType coolingType;
-  char brand[48];
-} BatteryCharacter;
+typedef enum{
+	SENT,
+	NOT_SENT
+}AlertStatus;
 
-void checkAndAlert(
-  AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
+typedef AlertStatus (*sendTo)(AlertTarget);
+sendTo SendAlert[c_NUM_ALERT_TARGETS] ={sendToController , sendToEmail };
 
-void sendToController(BreachType breachType);
-void sendToEmail(BreachType breachType);
+const int c_PASSIVE_COOLING_LOWER_LIMIT = 0;
+const int c_PASSIVE_COOLING_UPPER_LIMIT = 35;
+const int c_HIACTIVE_COOLING_LOWER_LIMIT = 0;
+const int c_HIACTIVE_COOLING_UPPER_LIMIT = 45;
+const int c_MEDACTIVE_COOLING_LOWER_LIMIT = 0;
+const int c_MEDACTIVE_COOLING_UPPER_LIMIT = 40;
+const int c_NUM_COOLING_TYPES = 3;
+const int c_NUM_ALERT_TARGETS = 2;
+
+const int c_LOWER_LIMITS[c_NUM_COOLING_TYPES] = {c_PASSIVE_COOLING_LOWER_LIMIT,c_HIACTIVE_COOLING_LOWER_LIMIT,c_MEDACTIVE_COOLING_LOWER_LIMIT};
+const int c_UPPER_LIMITS[c_NUM_COOLING_TYPES] ={c_PASSIVE_COOLING_UPPER_LIMIT,c_HIACTIVE_COOLING_UPPER_LIMIT,c_MEDACTIVE_COOLING_UPPER_LIMIT};
+//typedef struct {
+//  CoolingType coolingType;
+//  char brand[48];
+//} BatteryCharacter;
+
+AlertStatus checkAndAlertifBreached(
+  AlertTarget alertTarget, BreachType breachType);
+
+AlertStatus sendToController(BreachType breachType);
+AlertStatus sendToEmail(BreachType breachType);
+
+
+
+
