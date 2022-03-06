@@ -26,7 +26,7 @@ typedef enum{
 	NOT_SENT
 }AlertStatus;
 
-typedef AlertStatus (*sendTo)(AlertTarget);
+typedef AlertStatus (*sendTo)(BreachType);
 
 
 const int c_PASSIVE_COOLING_LOWER_LIMIT = 0;
