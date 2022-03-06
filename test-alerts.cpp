@@ -16,9 +16,9 @@ TEST_CASE("get the lower limit for breach ") {
 }
 
 TEST_CASE("get the upper limit for breach ") {
-  REQUIRE(getLowerLimitforBreach(PASSIVE_COOLING) == c_PASSIVE_COOLING_UPPER_LIMIT);
-  REQUIRE(getLowerLimitforBreach(HI_ACTIVE_COOLING)  == c_HIACTIVE_COOLING_UPPER_LIMIT);
-  REQUIRE(getLowerLimitforBreach(MED_ACTIVE_COOLING) == c_MEDACTIVE_COOLING_UPPER_LIMIT);
+  REQUIRE(getUpperLimitforBreach(PASSIVE_COOLING) == c_PASSIVE_COOLING_UPPER_LIMIT);
+  REQUIRE(getUpperLimitforBreach(HI_ACTIVE_COOLING)  == c_HIACTIVE_COOLING_UPPER_LIMIT);
+  REQUIRE(getUpperLimitforBreach(MED_ACTIVE_COOLING) == c_MEDACTIVE_COOLING_UPPER_LIMIT);
 }
 
 
