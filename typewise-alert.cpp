@@ -1,6 +1,8 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
+sendTo SendAlert[c_NUM_ALERT_TARGETS] ={sendToController , sendToEmail };
+
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
 BreachType breachType = NORMAL;
   if(value < lowerLimit) {
@@ -40,3 +42,5 @@ AlertStatus checkAndAlertifBreached(AlertTarget alertTarget, BreachType breachTy
 	return alertStatus;
 
 }
+
+
