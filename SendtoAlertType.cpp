@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "typewise-alert.h"
-
-const char* TEMPSTATUS = ["NORMAL","TOO LOW","TOO HIGH"];
+const char* TEMPSTATUS[c_NUM_COOLING_TYPES] = ["NORMAL","TOO LOW","TOO HIGH"];
 
 
 AlertStatus sendToController(BreachType breachType) {
