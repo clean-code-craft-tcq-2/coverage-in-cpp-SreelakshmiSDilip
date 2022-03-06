@@ -27,7 +27,7 @@ typedef enum{
 }AlertStatus;
 
 typedef AlertStatus (*sendTo)(AlertTarget);
-sendTo SendAlert[c_NUM_ALERT_TARGETS] ={sendToController , sendToEmail };
+
 
 const int c_PASSIVE_COOLING_LOWER_LIMIT = 0;
 const int c_PASSIVE_COOLING_UPPER_LIMIT = 35;
