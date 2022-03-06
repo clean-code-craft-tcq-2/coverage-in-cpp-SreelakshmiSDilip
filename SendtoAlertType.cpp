@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include "typewise-alert.h"
 
 const char* TEMPSTATUS = ["NORMAL","TOO LOW","TOO HIGH"];
 
