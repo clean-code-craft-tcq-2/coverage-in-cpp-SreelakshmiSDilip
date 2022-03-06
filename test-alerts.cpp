@@ -35,6 +35,7 @@ TEST_CASE("Classify temperature breach") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 25) == NORMAL);
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 30) == NORMAL);
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING ,35) == NORMAL);
+}
 
   TEST_CASE("Check whether alert is sent or not when temperature is breached") {
   REQUIRE(checkAndAlertifBreached(TO_CONTROLLER, TOO_LOW) == SENT);
@@ -44,4 +45,4 @@ TEST_CASE("Classify temperature breach") {
   REQUIRE(checkAndAlertifBreached(TO_CONTROLLER, TOO_HIGH) == SENT);  
   REQUIRE(checkAndAlertifBreached(TO_EMAIL, TOO_HIGH) == SENT); 
 }
-}
+
